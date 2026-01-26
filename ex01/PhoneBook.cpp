@@ -42,7 +42,8 @@ void	PhoneBook::search(void) const
 		std::cout << "PhoneBook is empty.\n";
 		return;
 	}
-	std::cout	<< std::setw(10) << "INDEX" << "|"
+	std::cout	<< std::right
+				<< std::setw(10) << "INDEX" << "|"
 				<< std::setw(10) << "FIRST NAME" << "|"
 				<< std::setw(10) << "LAST NAME" << "|"
 				<< std::setw(10) << "NICKNAME" << "\n";
@@ -51,15 +52,15 @@ void	PhoneBook::search(void) const
 	while (i < this->_count)
 	{
 		std::cout	<< std::setw(10) << i << "|"
-					<< std::setw(10) << this->_formatField(this->contacts[i].getFirstName()) << "|"
-					<< std::setw(10) << this->_formatField(this->contacts[i].getLastName()) << "|"
-					<< std::setw(10) << this->_formatField(this->contacts[i].getNickname()) << "\n";
+					<< std::setw(10) << this->_formatField(this->_contacts[i].getFirstName()) << "|"
+					<< std::setw(10) << this->_formatField(this->_contacts[i].getLastName()) << "|"
+					<< std::setw(10) << this->_formatField(this->_contacts[i].getNickname()) << "\n";
 		i++;
 	}
 	std::cout << "Enter index of contact to display: ";
 	if (!std::getline(std::cin, input))
 	{
-		std::cout << "\n";
+		std::cout << '\n';
 		return;
 	}
 	if (input.length() != 1 || input[0] < '0' || input[0] > '7')
@@ -76,7 +77,7 @@ void	PhoneBook::search(void) const
 	std::cout << "First name: " << this->_contacts[index].getFirstName() << "\n";
 	std::cout << "Last name: " << this->_contacts[index].getLastName() << "\n";
 	std::cout << "Nickname: " << this->_contacts[index].getNickname() << "\n";
-	std::cout << "Phone number: " << this->_contacts[index].getFirstName() << "\n";
+	std::cout << "Phone number: " << this->_contacts[index].getPhoneNumber() << "\n";
 	std::cout << "Darkest secret: " << this->_contacts[index].getDarkestSecret() << "\n";
 
 }
