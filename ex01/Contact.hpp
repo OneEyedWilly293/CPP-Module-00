@@ -6,10 +6,10 @@
 
 class Contact
 {
+	/*
+		These are privte so only Contact can modify them directly.
+	*/
 	private:
-		/*
-			These are privte so only Contact can modify them directly.
-		*/
 		std::string _first_name;
 		std::string _last_name;
 		std::string _nickname;
@@ -26,7 +26,6 @@ class Contact
 		bool	setFromInput(void);
 
 		/*
-			TODO: Getter for alter steps (SEARCH table and full display).
 			These are const because they should NOT modify the object.
 		*/
 		std::string getFirstName(void) const;
